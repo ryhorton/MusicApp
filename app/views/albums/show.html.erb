@@ -1,0 +1,25 @@
+<h2><%= @album.name %></h2>
+
+<table>
+  <tr>
+    <th>Band</th>
+    <th>Tracks</th>
+  </tr>
+
+
+  <tr>
+    <% band_name = Band.find(@album.band_id).name %>
+    <td> <%= band_name %></td>
+    <td>
+      <% @album.tracks.each do |track| %>
+        <%= track.name %>
+        <br>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<br><br>
+
+<a href="<%= new_album_track_url(@album) %>">Add tracks to album</a>
+<br><br>
+<a href="<%= band_url(@album.band) %>">All <%= @album.band.name %> albums</a>

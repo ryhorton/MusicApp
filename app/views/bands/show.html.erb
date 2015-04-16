@@ -1,0 +1,22 @@
+<h2><%= @band.name %></h2>
+
+<table>
+  <tr>
+    <th>Albums</th>
+  </tr>
+  <tr>
+    <td>
+    <% Album.all.each do |album| %>
+      <% if album.band_id == @band.id %>
+        <%= album.name %>
+        <br>
+      <% end %>
+    <% end %>
+    </td>
+  </tr>
+</table>
+<br><br>
+
+<a href="<%= new_band_album_url(@band) %>">Add a <%= @band.name %> album</a>
+<br><br>
+<a href="<%= bands_url %>">See all bands</a>
